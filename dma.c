@@ -233,7 +233,7 @@ void dma_print_blocks() {
                 unsigned int b0 = (unsigned int) (current_char >> 7) % 2;
                 unsigned int b1 = (unsigned int) (current_char >> 6) % 2;
                 if(b0 || b1) {
-                    printf("A, %ld, %x, (%d)\n", (unsigned long)starting_pointer + i, (j + 1) * 16, (j + 1) * 16);
+                    printf("A, 0x%lx,\t0x%x\t0x (%d)\n", (unsigned long)starting_pointer + i, (j + 1) * 16, (j + 1) * 16);
                     break;
                 }
                 i+=2;
@@ -248,7 +248,7 @@ void dma_print_blocks() {
                 unsigned int b0 = (unsigned int) (current_char >> 7) % 2;
                 unsigned int b1 = (unsigned int) (current_char >> 6) % 2;
                 if(!b0 || !b1) {
-                    printf("F, %ld, %x, (%d)\n", (unsigned long)starting_pointer + i, (j + 1) * 16, (j + 1) * 16);
+                    printf("F, 0x%lx,\t0x%x\t0x (%d)\n", (unsigned long)starting_pointer + i, (j + 1) * 16, (j + 1) * 16);
                     break;
                 }
                 i+=2;
@@ -264,7 +264,7 @@ int dma_give_intfrag() {
     return internal_fragmentation;
 }
 
-void main()
+int main()
 {
     dma_init(14);
     //dma_print_bitmap();
@@ -280,4 +280,5 @@ void main()
         dma_free(p);
     }
     //dma_print_bitmap();
+    return 0;
 }
