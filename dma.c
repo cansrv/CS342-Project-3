@@ -186,7 +186,7 @@ void dma_print_bitmap()
         unsigned int b6 = (unsigned int)(current_char >> 1) % 2;
         unsigned int b7 = (unsigned int)(current_char >> 0) % 2;
         printf("%hhu%hhu%hhu%hhu%hhu%hhu%hhu%hhu ", b0, b1, b2, b3, b4, b5, b6, b7);
-        if (i % 16 == 15)
+        if (i % 8 == 7)
             printf("\n");
     }
     printf("\n");

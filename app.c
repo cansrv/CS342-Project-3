@@ -21,6 +21,8 @@ exit(1); }
     p4 = dma_alloc (220);
     dma_free (p3);
     p3 = dma_alloc (2048);
+    dma_print_bitmap();
+    dma_print_page(0);
     dma_print_blocks();
     dma_free (p1);
     dma_free (p2);
