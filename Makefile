@@ -1,12 +1,8 @@
-CC = gcc
-CFLAGS = -Wall
-LDFLAGS = -lm
-OBJFILES = dma.o
-TARGET = dma
-
-all: $(TARGET)
-
-$(TARGET): $(OBJFILES)
-	$(CC) $(CFLAGS) -o $(TARGET) $(OBJFILES) $(LDFLAGS)
+all: libdma.a app
+libdma.a: dma.c
+	gcc -Wall -g -c dma.c -lm
+	ar rcs libdma.a dma.o
+app: app.c
+	gcc -Wall -g -o app app.c -L. -ldma -lm
 clean:
-	rm -f dma.h.gch $(TARGET) $(OBJFILES) *~
+	rm -fr *~ libdma.a dma.o app.o app
